@@ -15,7 +15,7 @@
 │   ├── di.php<br>
 │   └── helper<br>
 ├── composer.json 包管理文件<br>
-├── composer.lock
+├── composer.lock<br>
 ├── config 配置文件 用户可根据自己的环境配置<br>
 │   ├── database.php<br>
 │   ├── redis.php<br>
@@ -28,6 +28,28 @@
 ├── storage 临时文件<br>
 │   └── log<br>
 └── vendor<br>
+
+###  [使用方式]
+推荐安装anaconda<br>
+安装结巴分词pip3 install jieba<br>
+<br>
+浏览器方式：<br>
+nginx配置文件根目录为public<br>
+浏览器get方式访问：http://localhost/translate<br>
+<br>
+命令行cli方式：<br>
+php translateCommand.php<br>
+
+###  [使用参数]
+| 参数名称  | 参数类型  | 备注  |
+| ------------ | ------------ | ------------ |
+| words  | string  | 需要转换的中文变量名  |
+| word_mode  | int  | 选词模式1是最精确 2是单词数最短 默认为1  |
+| mode  | int  | 命名模式 1是驼峰命名用于类名和方法名 2是下划线分割用于变量名  |
+| words_limit  | int  | 限定每个单词最长长度 默认为0 不限制 |
+
+###  [效果图]
+![image](https://github.com/HarryYanHao/translate/blob/master/screeshots/1.jpg)
 
 
 ###  [作者列表]：harry.yan
