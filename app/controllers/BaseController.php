@@ -1,5 +1,7 @@
 <?php
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 /**
 * BaseController
 */
@@ -14,12 +16,7 @@ class BaseController
     if(php_sapi_name() === 'cli'){
       $this->request = $this->parseArgs($argv);
     }else{
-      if($this->isGet()){
-        $this->request = $_GET;
-      }
-    if($this->isPost()){
-        $this->request = $_POST;
-      }
+      $this->request = Request::createFromGlobals();
     }
     
   }
@@ -35,6 +32,12 @@ class BaseController
   }
   public function isPost(){
       return ($_SERVER['REQUEST_METHOD'] == 'POST' &&(empty($_SERVER['HTTP_REFERER']) || preg_replace("~https?:\/\/([^\:\/]+).*~i", "\\1", $_SERVER['HTTP_REFERER']) == preg_replace("~([^\:]+).*~", "\\1", $_SERVER['HTTP_HOST']))) ? true : false;
+  }
+  public function _outPut($res_data){
+    $response = new Response();
+    $response->setContent($res_data);
+    $response->setMaxAge(10);
+    $response->send();
   }
   public function parseArgs($argv){
     array_shift($argv);

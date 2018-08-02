@@ -10,6 +10,12 @@ use App\Services\TranslateService;
 
 class HomeController extends BaseController
 {
+  public function home(){
+    echo 'Hi Hp framework';
+    //dump($this->request->get('test'));
+    dump($this->_outPut('Harry'));
+    exit();
+  }
   public function translate(){
     $youdaoConfig = config('youdao');
     $appId = $youdaoConfig['app_id'];

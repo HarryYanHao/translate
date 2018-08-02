@@ -3,8 +3,8 @@
         "noahbuscher/macaw": "dev-master",
         "monolog/monolog": "^1.23",
         "symfony/var-dumper": "^3.4",
-        "bshaffer/oauth2-server-php" : "v1.10.0",
-        "illuminate/database": "*"
+        "illuminate/database": "*",
+        "symfony/http-foundation":"^2.7"
     },
     "autoload": {
         "classmap": [
